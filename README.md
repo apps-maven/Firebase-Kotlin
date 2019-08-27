@@ -1,7 +1,7 @@
 <h1> Firebase-Kotlin</h1>
 
 
-<h5>This project is demonstrating how to fetch data from Firebase using Kotlin forAndroid.</h5>
+<h5>This project is demonstrating how to fetch data from Firebase using Kotlin for Android.</h5>
 
 <h4>What is Firebase?</h4>
 Firebase is Google's mobile platform that helps you quickly develop high-quality apps and grow your business. 
