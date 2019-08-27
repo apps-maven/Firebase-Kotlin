@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F3F3">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swiperefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/sv_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/rl_scrollview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/rl_cover"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_130sdp">
+
+                    <ImageView
+                        android:id="@+id/iv_cover"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_105sdp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/guitar" />
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/iv_home_rounded"
+                        android:layout_width="@dimen/_73sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_60sdp"
+                        android:layout_height="@dimen/_85sdp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/download"
+                        app:riv_corner_radius="@dimen/_80sdp"
+                       />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_analytics"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rl_cover">
+
+                    <TextView
+                        android:id="@+id/tv_loopmusic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:text="FireBase"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15ssp"
+                        android:textStyle="bold" />
+
+
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_firebase"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                 android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_below="@+id/rl_analytics"
+                    android:nestedScrollingEnabled="false"/>
+            </RelativeLayout>
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</RelativeLayout>
