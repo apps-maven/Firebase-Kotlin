@@ -34,7 +34,8 @@ The Firebase Realtime Database is a cloud-hosted database. Data is stored as JSO
 	 mMessageReference = FirebaseDatabase.getInstance().getReference("data_link")
 </blockquote>
 4. To fetch data from database, add child event listener.</br>
-5. Add that data in recycler view.</p><br>
+5. Add that data in recycler view.</br>
+6. Also added the pull to refresh Functionality to refresh the screen. </br></p><br>
 <p><strong>
 Version: 1.0<br>
 Initial Build</strong></p>
