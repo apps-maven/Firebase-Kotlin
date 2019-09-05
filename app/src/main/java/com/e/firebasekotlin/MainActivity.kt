@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 
 import com.google.firebase.database.*
 import java.util.ArrayList
@@ -17,21 +18,34 @@ class MainActivity : AppCompatActivity() {
     internal lateinit var mMessageListener: ChildEventListener
     internal lateinit var linearLayoutManager: GridLayoutManager
     internal lateinit var recyclerView: RecyclerView
-
+internal lateinit var swiperefresh:SwipeRefreshLayout
     protected override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_download)
-
+        swiperefresh = findViewById(R.id.swiperefresh)
         recyclerView = findViewById(R.id.rv_firebase)
         linearLayoutManager= GridLayoutManager(this,2)
 recyclerView.layoutManager=linearLayoutManager
         mMessageReference = FirebaseDatabase.getInstance().getReference("data_link")
         fireBaseInit()
         // get reference to 'users' node
+        swiperefresh.setColorSchemeResources(
+            R.color.colorPrimary,
+            android.R.color.holo_green_dark,
+            android.R.color.holo_orange_dark,
+            android.R.color.holo_blue_dark
+        )
+        swiperefresh.setOnRefreshListener {
+            list.clear()
+            fireBaseInit()
+            Toast.makeText(this@MainActivity, "Data refreshed", Toast.LENGTH_SHORT).show()
+            onLoadComplete()
+        }
 
     }
-
-
+    fun onLoadComplete() {
+        swiperefresh.setRefreshing(false)
+    }
 
 
     fun fireBaseInit() {
